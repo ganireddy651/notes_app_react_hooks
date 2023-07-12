@@ -18,7 +18,7 @@ const Notes = () => {
   const [notesList, setNotesList] = useState(stored == null ? [] : stored)
 
   useEffect(() => {
-    document.title = 'Notes'
+    document.title = 'Notes'..
   })
 
   useEffect(() => {
