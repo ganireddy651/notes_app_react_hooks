@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import {v4 as uuidv4} from 'uuid'
 import NoteItem from '../NoteItem'
 import {
@@ -13,22 +13,32 @@ import './index.css'
 
 const Notes = () => {
   const [title, setTitle] = useState('')
-  console.log(title)
   const [notes, setNotes] = useState('')
-  console.log(notes)
-  const [notesList, setNotesList] = useState([])
+  const stored = JSON.parse(localStorage.getItem('notesList'))
+  const [notesList, setNotesList] = useState(stored == null ? [] : stored)
+
+  useEffect(() => {
+    document.title = 'Notes'
+  })
+
+  useEffect(() => {
+    localStorage.setItem('notesList', JSON.stringify(notesList))
+  })
 
   const onAddNotes = () => {
-    const newNotes = {
-      id: uuidv4(),
-      title,
-      notes,
+    if (title === '' || notes === '') {
+      alert('Enter Title And Notes')
+    } else {
+      const newNotes = {
+        id: uuidv4(),
+        title,
+        notes,
+      }
+      setNotesList(prevNotesList => [...prevNotesList, newNotes])
+      setTitle('')
+      setNotes('')
     }
-    setNotesList(prevNotesList => [...prevNotesList, newNotes])
-    setTitle('')
-    setNotes('')
   }
-
   const onChangeTitle = e => {
     setTitle(e.target.value)
   }
