@@ -1,0 +1,32 @@
+.no-notes-image {
+  height: 100px;
+  width: 100px;
+}
+@media screen and (max-width: 576px) {
+  .no-notes-image {
+    height: 60px;
+    width: 60px;
+  }
+}
+.no-notes-heading {
+  font-size: 30px;
+  color: #334155;
+}
+@media screen and (max-width: 576px) {
+  .no-notes-heading {
+    font-size: 20px;
+  }
+}
+.list-container {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  width: '100%';
+}
+@media screen and (max-width: 576px) {
+  .list-container {
+    flex-direction: column;
+  }
+}

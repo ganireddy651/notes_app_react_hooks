@@ -1,0 +1,31 @@
+.card {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+  height: 150px;
+  width: 250px;
+  margin: 10px;
+  padding: 10px;
+}
+@media screen and (max-width: 576px) {
+  .card {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+  }
+}
+.card-heading {
+  font-size: 16px;
+  text-align: left;
+  margin-top: 0;
+}
+.card-para {
+  font-size: 12px;
+  text-align: left;
+}
+.close-button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  text-align: right;
+}
