@@ -19,16 +19,19 @@ const Notes = () => {
   const [notesList, setNotesList] = useState([])
 
   const onAddNotes = () => {
-    const newNotes = {
-      id: uuidv4(),
-      title,
-      notes,
+    if (title === '' || notes === '') {
+      alert('Enter Title And Notes')
+    } else {
+      const newNotes = {
+        id: uuidv4(),
+        title,
+        notes,
+      }
+      setNotesList(prevNotesList => [...prevNotesList, newNotes])
+      setTitle('')
+      setNotes('')
     }
-    setNotesList(prevNotesList => [...prevNotesList, newNotes])
-    setTitle('')
-    setNotes('')
   }
-
   const onChangeTitle = e => {
     setTitle(e.target.value)
   }
