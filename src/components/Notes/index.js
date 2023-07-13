@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import {v4 as uuidv4} from 'uuid'
+import {MdLightMode} from 'react-icons/md'
 import NoteItem from '../NoteItem'
 import {
   BackgroundContainer,
@@ -14,11 +15,12 @@ import './index.css'
 const Notes = () => {
   const [title, setTitle] = useState('')
   const [notes, setNotes] = useState('')
+  const [theme, setTheme] = useState('')
   const stored = JSON.parse(localStorage.getItem('notesList'))
-  const [notesList, setNotesList] = useState(stored == null ? [] : stored)
+  const [notesList, setNotesList] = useState(stored === null ? [] : stored)
 
   useEffect(() => {
-    document.title = 'Notes'..
+    document.title = 'Notes'
   })
 
   useEffect(() => {
@@ -52,8 +54,17 @@ const Notes = () => {
     setNotesList(filteredNotesList)
   }
 
+  const onToggleTheme = () => {
+    setTheme(prevClass => !prevClass)
+  }
+
+  const className = theme ? 'theme-dark' : 'theme-light'
+
   return (
-    <BackgroundContainer>
+    <BackgroundContainer theme={theme}>
+      <button onClick={onToggleTheme} className="theme-button" type="button">
+        <MdLightMode className={className} />
+      </button>
       <NotesHeading>Notes</NotesHeading>
       <NotesContainer>
         <InputElement
@@ -81,7 +92,9 @@ const Notes = () => {
             alt="notes empty"
           />
           <h1 className="no-notes-heading">No Notes Yet</h1>
-          <p>Notes you add will appear here</p>
+          <p className={className} style={{fontSize: '14px'}}>
+            Notes you add will appear here
+          </p>
         </div>
       ) : (
         <ul className="list-container">

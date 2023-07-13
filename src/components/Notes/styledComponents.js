@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const BackgroundContainer = styled.div`
-  background-color: #d8d8d8;
+  background-color: ${props => (props.theme === true ? '#d8d8d8' : '#000000')};
   min-height: 100vh;
   padding: 30px;
   text-align: center;
@@ -32,7 +32,6 @@ export const InputElement = styled.input`
   outline: none;
   border: none;
   width: 100%;
-  height: 30px;
 `
 
 export const TextAreaElement = styled.textarea`
@@ -50,4 +49,5 @@ export const AddButton = styled.button`
   border: none;
   margin-top: 10px;
   border-radius: 3px;
+  font-size: 15px;
 `

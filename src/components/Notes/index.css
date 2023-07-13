@@ -30,3 +30,16 @@
     flex-direction: column;
   }
 }
+.theme-button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+.theme-light {
+  color: #ffffff;
+  font-size: 30px;
+}
+.theme-dark {
+  color: #000000;
+  font-size: 30px;
+}
