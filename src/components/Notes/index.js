@@ -21,9 +21,6 @@ const Notes = () => {
 
   useEffect(() => {
     document.title = 'Notes'
-  })
-
-  useEffect(() => {
     localStorage.setItem('notesList', JSON.stringify(notesList))
   })
 
